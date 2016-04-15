@@ -1,0 +1,103 @@
+#include <iostream>
+using namespace std;
+int x[100], y[100], z[100], i;
+int KUCHKA1(int a1, int i)
+{
+
+}
+int KUCHKA2(int a2, int i)
+{
+
+}
+int KUCHKA3(int a3, int i)
+{
+
+}
+void FUNKCIAPvP(int a)
+{
+	int a1, a2, a3, k;
+	for (i = 0;i < a;i++)
+	{
+		x[i]++;
+		y[i]++;
+		z[i]++;
+	}
+	a1 = a;
+	a2 = a;
+	a3 = a;
+	cout << "Выберите одну из трех кучек: ";
+	cin >> k;
+	cout << "Ведите колчество спичек которые выхотите вытащить: ";
+	cin >> i;
+	if (k == 1)
+	{
+		KUCHKA1(a1, i);
+	}
+	else
+	{
+		if (k == 2)
+		{
+			KUCHKA2(a2, i);
+		}
+		else
+		{
+			if (k == 3)
+			{
+				KUCHKA3(a3, i);
+			}
+			else
+			{
+				cin >> "ERROR";
+			}
+		}
+	}
+}
+void FUNKCIAPvE(int a)
+{
+	for (i = 0;i < a;i++)
+	{
+		x[i]++;
+		y[i]++;
+		z[i]++;
+	}
+}
+void FUNKCIAEvE(int a)
+{
+	for (i = 0;i < a;i++)
+	{
+		x[i]++;
+		y[i]++;
+		z[i]++;
+	}
+}
+int main()
+{
+	int j, a, PvP, PvE, EvE;
+	cout << "ВЫБЕРИТЕ РЕЖИМ: 1)PvP 2)PvE 3)EvE" <<endl <<"Напишите номер выбранного режима";
+	cin >> j;
+	if (j == 1)
+	{
+		cout << "Введите размер кучек" << endl;
+		cin >> a;
+		FUNKCIAPvP(a);
+	}
+	else
+		if (j == 2)
+		{
+			cout << "Введите размер кучек" << endl;
+			cin >> a;
+			FUNKCIAPvE(a);
+		}
+		else
+			if (j == 3)
+			{
+				cout << "Введите размер кучек" << endl;
+				cin >> a;
+				FUNKCIAEvE(a);
+			}
+			else
+			{
+				cin >> "ERROR";
+			}
+	return 0;
+}
