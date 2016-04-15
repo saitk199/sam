@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 int KUCHKA1(int RAZMERKUCHKA1, int Drawnmatches)
 {
@@ -8,12 +9,12 @@ int KUCHKA1(int RAZMERKUCHKA1, int Drawnmatches)
 }
 int KUCHKA2(int RAZMERKUCHKA2, int Drawnmatches)
 {
-	RAZMERKUCHKA2 = RAZMERKUCHKA1 - Drawnmatches;
+	RAZMERKUCHKA2 = RAZMERKUCHKA2 - Drawnmatches;
 	return RAZMERKUCHKA2;
 }
 int KUCHKA3(int RAZMERKUCHKA3, int Drawnmatches)
 {
-	RAZMERKUCHKA3 = RAZMERKUCHKA1 - Drawnmatches;
+	RAZMERKUCHKA3 = RAZMERKUCHKA3 - Drawnmatches;
 	return RAZMERKUCHKA3;
 }
 void FUNKCIAPvP(int originalsize)
@@ -106,7 +107,7 @@ void FUNKCIAPvP(int originalsize)
 		}
 		else
 		{
-			cin >> "Player 2 - Win!!"
+			cin >> "Player 2 - Win!!";
 				break;
 		}
 		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
@@ -191,7 +192,7 @@ void FUNKCIAPvP(int originalsize)
 		}
 		else
 		{
-			cin >> "Player 1 - Win!!"
+			cin >> "Player 1 - Win!!";
 				break;
 		}
 	}
@@ -280,22 +281,68 @@ void FUNKCIAPvE(int originalsize)
 				}
 				default:
 				{
-					cin >> "ERROR";
+					cout <<endl << "ERROR";
 				}
 			}
 		}
 		else
 		{
-			cin >> "Computer - Win!!"
+			cout <<endl << "Computer - Win!!";
 				break;
 		}
 		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
 		{
-			
+			NUMBER = rand() % 3 + 1;
+			switch (NUMBER)
+			{
+				case 1:
+				{
+					if (RAZMERKUCHKA1 == 0)
+					{
+						i--;
+						continue;
+					}
+					else
+					{
+						Drawnmatches = rand() % RAZMERKUCHKA1 + 1;
+						RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
+					}
+				}
+				case 2:
+				{
+					if (RAZMERKUCHKA2 == 0)
+					{
+						i--;
+						continue;
+					}
+					else
+					{
+						Drawnmatches = rand() % RAZMERKUCHKA2 + 1;
+						RAZMERKUCHKA2 = KUCHKA1(RAZMERKUCHKA2, Drawnmatches);
+					}
+				}
+				case 3:
+				{
+					if (RAZMERKUCHKA3 == 0)
+					{
+						i--;
+						continue;
+					}
+					else
+					{
+						Drawnmatches = rand() % RAZMERKUCHKA3 + 1;
+						RAZMERKUCHKA3 = KUCHKA1(RAZMERKUCHKA3, Drawnmatches);
+					}
+				}
+				default:
+				{
+					cout << endl << "ERROR";
+				}
+			}
 		}
 		else
 		{
-			cin >> "Player - Win!!"
+			cin >> "Player - Win!!";
 			break;
 		}
 	}
