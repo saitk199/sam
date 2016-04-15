@@ -1,103 +1,171 @@
 #include <iostream>
+#include <stdio.h>
 using namespace std;
-int x[100], y[100], z[100], i;
-int KUCHKA1(int a1, int i)
+int KUCHKA1(int RAZMERKUCHKA1, int Drawnmatches)
 {
-
+	RAZMERKUCHKA1 = RAZMERKUCHKA1 - Drawnmatches;
+	return RAZMERKUCHKA1;
 }
-int KUCHKA2(int a2, int i)
+int KUCHKA2(int RAZMERKUCHKA2, int Drawnmatches)
 {
-
+	RAZMERKUCHKA2 = RAZMERKUCHKA1 - Drawnmatches;
+	return RAZMERKUCHKA2;
 }
-int KUCHKA3(int a3, int i)
+int KUCHKA3(int RAZMERKUCHKA3, int Drawnmatches)
 {
-
+	RAZMERKUCHKA3 = RAZMERKUCHKA1 - Drawnmatches;
+	return RAZMERKUCHKA3;
 }
-void FUNKCIAPvP(int a)
+void FUNKCIAPvP(int originalsize)
 {
-	int a1, a2, a3, k;
-	for (i = 0;i < a;i++)
+	int RAZMERKUCHKA1, RAZMERKUCHKA2, RAZMERKUCHKA3, NUMBER, Drawnmatches;
+	RAZMERKUCHKA1 = originalsize;
+	RAZMERKUCHKA2 = originalsize;
+	RAZMERKUCHKA3 = originalsize;
+	for (int i = 0;i < 3 * originalsize; i++)
 	{
-		x[i]++;
-		y[i]++;
-		z[i]++;
-	}
-	a1 = a;
-	a2 = a;
-	a3 = a;
-	cout << "Выберите одну из трех кучек: ";
-	cin >> k;
-	cout << "Ведите колчество спичек которые выхотите вытащить: ";
-	cin >> i;
-	if (k == 1)
-	{
-		KUCHKA1(a1, i);
-	}
-	else
-	{
-		if (k == 2)
+		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
 		{
-			KUCHKA2(a2, i);
+			cout << "Player 1" <<endl <<"Выберете одну из 3-х кучек: ";
+			cin >> NUMBER;
+			cout << endl << "Введите количество вытягиваемых спичек: ";
+			cin >> Drawnmatches;
+			switch (NUMBER)
+			{
+				case 1:
+				{
+					RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
+				}
+				case 2:
+				{
+					RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
+				}
+				case 3:
+				{
+					RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
+				}
+				default:
+				{
+					cin >> "ERROR";
+				}
+			}
 		}
 		else
 		{
-			if (k == 3)
+			cin >>"Player 2 - Win!!"
+			break;
+		}
+		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
+		{
+			cout << "Player 2" << endl << "Выберете одну из 3-х кучек: ";
+			cin >> NUMBER;
+			cout << endl << "Введите количество вытягиваемых спичек: ";
+			cin >> Drawnmatches;
+			switch (NUMBER)
 			{
-				KUCHKA3(a3, i);
+			case 1:
+			{
+				RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
 			}
-			else
+			case 2:
+			{
+				RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
+			}
+			case 3:
+			{
+				RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
+			}
+			default:
 			{
 				cin >> "ERROR";
 			}
+			}
+		}
+		else
+		{
+			cin >> "Player 1 - Win!!"
+			break;
 		}
 	}
 }
-void FUNKCIAPvE(int a)
+void FUNKCIAPvE(int originalsize)
 {
-	for (i = 0;i < a;i++)
+	int RAZMERKUCHKA1, RAZMERKUCHKA2, RAZMERKUCHKA3, NUMBER, Drawnmatches;
+	RAZMERKUCHKA1 = originalsize;
+	RAZMERKUCHKA2 = originalsize;
+	RAZMERKUCHKA3 = originalsize;
+	for (int i = 0;i < 3 * originalsize; i++)
 	{
-		x[i]++;
-		y[i]++;
-		z[i]++;
+		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
+		{
+			cout << "Player 1" << endl << "Выберете одну из 3-х кучек: ";
+			cin >> NUMBER;
+			cout << endl << "Введите количество вытягиваемых спичек: ";
+			cin >> Drawnmatches;
+			switch (NUMBER)
+			{
+			case 1:
+			{
+				RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
+			}
+			case 2:
+			{
+				RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
+			}
+			case 3:
+			{
+				RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
+			}
+			default:
+			{
+				cin >> "ERROR";
+			}
+			}
+		}
+		else
+		{
+			cin >> "Player 2 - Win!!"
+				break;
+		}
+
 	}
 }
-void FUNKCIAEvE(int a)
+void FUNKCIAEvE(int originalsize)
 {
-	for (i = 0;i < a;i++)
-	{
-		x[i]++;
-		y[i]++;
-		z[i]++;
-	}
+	int RAZMERKUCHKA1, RAZMERKUCHKA2, RAZMERKUCHKA3, NUMBER, Drawnmatches;
+	RAZMERKUCHKA1 = originalsize;
+	RAZMERKUCHKA2 = originalsize;
+	RAZMERKUCHKA3 = originalsize;
 }
 int main()
 {
-	int j, a, PvP, PvE, EvE;
-	cout << "ВЫБЕРИТЕ РЕЖИМ: 1)PvP 2)PvE 3)EvE" <<endl <<"Напишите номер выбранного режима";
-	cin >> j;
-	if (j == 1)
+	int GAMEMODE, originalsize, PvP, PvE, EvE;
+	cout << "Доступные режимы: 1)PvP 2)PvE 3)EvE" << endl << "Введите номер режима: ";
+	cin >> GAMEMODE;
+	switch(GAMEMODE)
 	{
-		cout << "Введите размер кучек" << endl;
-		cin >> a;
-		FUNKCIAPvP(a);
-	}
-	else
-		if (j == 2)
+		case 1:
 		{
-			cout << "Введите размер кучек" << endl;
-			cin >> a;
-			FUNKCIAPvE(a);
+			cout << "Введите исходное колличество спичек" << endl;
+			cin >> originalsize;
+			FUNKCIAPvP(originalsize);
 		}
-		else
-			if (j == 3)
-			{
-				cout << "Введите размер кучек" << endl;
-				cin >> a;
-				FUNKCIAEvE(a);
-			}
-			else
-			{
-				cin >> "ERROR";
-			}
+		case 2:
+		{
+			cout << "Введите исходное колличество спичек" << endl;
+			cin >> originalsize;
+			FUNKCIAPvE(originalsize);
+		}
+		case 3:
+		{
+			cout << "Введите исходное колличество спичек" << endl;
+			cin >> originalsize;
+			FUNKCIAEvE(originalsize);
+		}
+		default:
+		{
+			cin >> "ERROR";
+		}
+	}
 	return 0;
 }
