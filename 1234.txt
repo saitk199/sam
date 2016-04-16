@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 using namespace std;
 int KUCHKA1(int RAZMERKUCHKA1, int Drawnmatches)
 {
@@ -23,7 +24,9 @@ void FUNKCIAPvP(int originalsize)
 	RAZMERKUCHKA1 = originalsize;
 	RAZMERKUCHKA2 = originalsize;
 	RAZMERKUCHKA3 = originalsize;
-	for (int i = 0;i < 3 * originalsize; i++)
+	bool konec;
+	konec = true;
+	while (konec == true)
 	{
 		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
 		{
@@ -37,7 +40,6 @@ void FUNKCIAPvP(int originalsize)
 				{
 					if (RAZMERKUCHKA1 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -54,12 +56,12 @@ void FUNKCIAPvP(int originalsize)
 							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
 						}
 					}
+					break;
 				}
 				case 2:
 				{
 					if (RAZMERKUCHKA2 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -76,12 +78,12 @@ void FUNKCIAPvP(int originalsize)
 							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
 						}
 					}
+					break;
 				}
 				case 3:
 				{
 					if (RAZMERKUCHKA3 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -98,17 +100,19 @@ void FUNKCIAPvP(int originalsize)
 							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
 						}
 					}
+					break;
 				}
 				default:
 				{
-					cin >> "ERROR";
+					cout << "ERROR";
 				}
 			}
 		}
 		else
 		{
-			cin >> "Player 2 - Win!!";
-				break;
+			cout << "Player 2 - Win!!" <<endl;
+			konec = false;
+			break;
 		}
 		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
 		{
@@ -122,7 +126,6 @@ void FUNKCIAPvP(int originalsize)
 				{
 					if (RAZMERKUCHKA1 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -139,12 +142,12 @@ void FUNKCIAPvP(int originalsize)
 							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
 						}
 					}
+					break;
 				}
 				case 2:
 				{
 					if (RAZMERKUCHKA2 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -161,12 +164,12 @@ void FUNKCIAPvP(int originalsize)
 							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
 						}
 					}
+					break;
 				}
 				case 3:
 				{
 					if (RAZMERKUCHKA3 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -183,17 +186,19 @@ void FUNKCIAPvP(int originalsize)
 							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
 						}
 					}
+					break;
 				}
 				default:
 				{
-					cin >> "ERROR";
+					cout << "ERROR";
 				}
 			}
 		}
 		else
 		{
-			cin >> "Player 1 - Win!!";
-				break;
+			cout << "Player 1 - Win!!" << endl;
+			konec = false;
+			break;
 		}
 	}
 }
@@ -203,7 +208,9 @@ void FUNKCIAPvE(int originalsize)
 	RAZMERKUCHKA1 = originalsize;
 	RAZMERKUCHKA2 = originalsize;
 	RAZMERKUCHKA3 = originalsize;
-	for (int i = 0;i < 3 * originalsize; i++)
+	bool konec;
+	konec = true;
+	while (konec == true)
 	{
 		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
 		{
@@ -217,7 +224,6 @@ void FUNKCIAPvE(int originalsize)
 				{
 					if (RAZMERKUCHKA1 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -234,12 +240,12 @@ void FUNKCIAPvE(int originalsize)
 							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
 						}
 					}
+					break;
 				}
 				case 2:
 				{
 					if (RAZMERKUCHKA2 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -256,12 +262,12 @@ void FUNKCIAPvE(int originalsize)
 							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
 						}
 					}
+					break;
 				}
 				case 3:
 				{
 					if (RAZMERKUCHKA3 == 0)
 					{
-						i--;
 						cout << "Выберете другую кучку эта пустая" << endl;
 						continue;
 					}
@@ -278,6 +284,7 @@ void FUNKCIAPvE(int originalsize)
 							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
 						}
 					}
+					break;
 				}
 				default:
 				{
@@ -287,8 +294,9 @@ void FUNKCIAPvE(int originalsize)
 		}
 		else
 		{
-			cout <<endl << "Computer - Win!!";
-				break;
+			cout << "Computer - Win!!" << endl;
+			konec = false;
+			break;
 		}
 		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
 		{
@@ -299,7 +307,6 @@ void FUNKCIAPvE(int originalsize)
 				{
 					if (RAZMERKUCHKA1 == 0)
 					{
-						i--;
 						continue;
 					}
 					else
@@ -307,12 +314,12 @@ void FUNKCIAPvE(int originalsize)
 						Drawnmatches = rand() % RAZMERKUCHKA1 + 1;
 						RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
 					}
+					break;
 				}
 				case 2:
 				{
 					if (RAZMERKUCHKA2 == 0)
 					{
-						i--;
 						continue;
 					}
 					else
@@ -320,12 +327,12 @@ void FUNKCIAPvE(int originalsize)
 						Drawnmatches = rand() % RAZMERKUCHKA2 + 1;
 						RAZMERKUCHKA2 = KUCHKA1(RAZMERKUCHKA2, Drawnmatches);
 					}
+					break;
 				}
 				case 3:
 				{
 					if (RAZMERKUCHKA3 == 0)
 					{
-						i--;
 						continue;
 					}
 					else
@@ -338,11 +345,13 @@ void FUNKCIAPvE(int originalsize)
 				{
 					cout << endl << "ERROR";
 				}
+				break;
 			}
 		}
 		else
 		{
-			cin >> "Player - Win!!";
+			cout << "Player - Win!!" <<endl;
+			konec = false;
 			break;
 		}
 	}
@@ -353,9 +362,127 @@ void FUNKCIAEvE(int originalsize)
 	RAZMERKUCHKA1 = originalsize;
 	RAZMERKUCHKA2 = originalsize;
 	RAZMERKUCHKA3 = originalsize;
+	bool konec;
+	konec = true;
+	while (konec == true)
+	{
+		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
+		{
+			NUMBER = rand() % 3 + 1;
+			switch (NUMBER)
+			{
+				case 1:
+				{
+					if (RAZMERKUCHKA1 == 0)
+					{
+						continue;
+					}
+					else
+					{
+						Drawnmatches = rand() % RAZMERKUCHKA1 + 1;
+						RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
+					}
+					break;
+				}
+				case 2:
+				{
+					if (RAZMERKUCHKA2 == 0)
+					{
+						continue;
+					}
+					else
+					{
+						Drawnmatches = rand() % RAZMERKUCHKA2 + 1;
+						RAZMERKUCHKA2 = KUCHKA1(RAZMERKUCHKA2, Drawnmatches);
+					}
+					break;
+				}
+				case 3:
+				{
+					if (RAZMERKUCHKA3 == 0)
+					{
+						continue;
+					}
+					else
+					{
+						Drawnmatches = rand() % RAZMERKUCHKA3 + 1;
+						RAZMERKUCHKA3 = KUCHKA1(RAZMERKUCHKA3, Drawnmatches);
+					}
+					break;
+				}
+				default:
+				{
+					cout << endl << "ERROR";
+				}
+			}
+		}
+		else
+		{
+			cout << "Computer2 - Win!!" <<endl;
+			konec = false;
+			break;
+		}
+		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
+		{
+			NUMBER = rand() % 3 + 1;
+			switch (NUMBER)
+			{
+			case 1:
+			{
+				if (RAZMERKUCHKA1 == 0)
+				{
+					continue;
+				}
+				else
+				{
+					Drawnmatches = rand() % RAZMERKUCHKA1 + 1;
+					RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
+				}
+				break;
+			}
+			case 2:
+			{
+				if (RAZMERKUCHKA2 == 0)
+				{
+					continue;
+				}
+				else
+				{
+					Drawnmatches = rand() % RAZMERKUCHKA2 + 1;
+					RAZMERKUCHKA2 = KUCHKA1(RAZMERKUCHKA2, Drawnmatches);
+				}
+				break;
+			}
+			case 3:
+			{
+				if (RAZMERKUCHKA3 == 0)
+				{
+					continue;
+				}
+				else
+				{
+					Drawnmatches = rand() % RAZMERKUCHKA3 + 1;
+					RAZMERKUCHKA3 = KUCHKA1(RAZMERKUCHKA3, Drawnmatches);
+				}
+				break;
+			}
+			default:
+			{
+				cout << endl << "ERROR";
+			}
+			}
+		}
+		else
+		{
+			cout << "Computer1 - Win!!";
+			konec = false;
+			break;
+		}
+	}
 }
 int main()
 {
+	setlocale(LC_ALL, "Russian");
 	int GAMEMODE, originalsize, PvP, PvE, EvE;
 	cout << "Доступные режимы: 1)PvP 2)PvE 3)EvE" << endl << "Введите номер режима: ";
 	cin >> GAMEMODE;
@@ -363,25 +490,28 @@ int main()
 	{
 		case 1:
 		{
-			cout << "Введите исходное колличество спичек" << endl;
+			cout <<endl << "Введите исходное колличество спичек: ";
 			cin >> originalsize;
 			FUNKCIAPvP(originalsize);
+			break;
 		}
 		case 2:
 		{
-			cout << "Введите исходное колличество спичек" << endl;
+			cout << endl << "Введите исходное колличество спичек: ";
 			cin >> originalsize;
 			FUNKCIAPvE(originalsize);
+			break;
 		}
 		case 3:
 		{
-			cout << "Введите исходное колличество спичек" << endl;
+			cout << endl << "Введите исходное колличество спичек: ";
 			cin >> originalsize;
 			FUNKCIAEvE(originalsize);
+			break;
 		}
 		default:
 		{
-			cin >> "ERROR";
+			cout << "ERROR";
 		}
 	}
 	return 0;
