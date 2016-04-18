@@ -3,481 +3,152 @@
 #include <stdlib.h>
 #include <windows.h>
 using namespace std;
-int KUCHKA1(int RAZMERKUCHKA1, int Drawnmatches)
+int KUCHKA(int RAZMERKUCHKA, int Drawnmatches)
 {
-	RAZMERKUCHKA1 = RAZMERKUCHKA1 - Drawnmatches;
-	return RAZMERKUCHKA1;
+	RAZMERKUCHKA = RAZMERKUCHKA - Drawnmatches;
+	return RAZMERKUCHKA;
 }
-int KUCHKA2(int RAZMERKUCHKA2, int Drawnmatches)
+int NextPlayer(int CurrentPlayer)
 {
-	RAZMERKUCHKA2 = RAZMERKUCHKA2 - Drawnmatches;
-	return RAZMERKUCHKA2;
-}
-int KUCHKA3(int RAZMERKUCHKA3, int Drawnmatches)
-{
-	RAZMERKUCHKA3 = RAZMERKUCHKA3 - Drawnmatches;
-	return RAZMERKUCHKA3;
+	if (CurrentPlayer == 1)
+	{
+		return 2;
+	}
+	if (CurrentPlayer == 2)
+	{
+		return 1;
+	}
+	return -1;
 }
 void FUNKCIAPvP(int originalsize)
 {
-	int RAZMERKUCHKA1, RAZMERKUCHKA2, RAZMERKUCHKA3, NUMBER, Drawnmatches;
-	RAZMERKUCHKA1 = originalsize;
-	RAZMERKUCHKA2 = originalsize;
-	RAZMERKUCHKA3 = originalsize;
-	bool konec;
-	konec = true;
-	while (konec == true)
+	int RAZMERKUCHKA[3], NUMBER, Drawnmatches, PLAYERNUMBER = 1;
+	RAZMERKUCHKA[0] = originalsize;
+	RAZMERKUCHKA[1] = originalsize;
+	RAZMERKUCHKA[2] = originalsize;
+	while ((RAZMERKUCHKA[0] + RAZMERKUCHKA[1] + RAZMERKUCHKA[2]) > 0)
 	{
-		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
+		cout <<endl << "Player " << PLAYERNUMBER <<endl << "Выберете одну из 3-х кучек: ";
+		cin >> NUMBER;
+		cout << endl << "Введите количество вытягиваемых спичек: ";
+		cin >> Drawnmatches;
+		if (RAZMERKUCHKA[NUMBER - 1] == 0)
 		{
-			cout << "Player 1" << endl << "Выберете одну из 3-х кучек: ";
-			cin >> NUMBER;
-			cout << endl << "Введите количество вытягиваемых спичек: ";
-			cin >> Drawnmatches;
-			switch (NUMBER)
-			{
-				case 1:
-				{
-					if (RAZMERKUCHKA1 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA1)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA1 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-						}
-					}
-					break;
-				}
-				case 2:
-				{
-					if (RAZMERKUCHKA2 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA2)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA2 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
-						}
-					}
-					break;
-				}
-				case 3:
-				{
-					if (RAZMERKUCHKA3 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA3)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA3 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
-						}
-					}
-					break;
-				}
-				default:
-				{
-					cout << "ERROR";
-				}
-			}
+			cout << "Выберете другую кучку эта пустая" << endl;
+			continue;
 		}
 		else
 		{
-			cout << "Player 2 - Win!!" <<endl;
-			konec = false;
-			break;
-		}
-		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
-		{
-			cout << "Player 2" << endl << "Выберете одну из 3-х кучек: ";
-			cin >> NUMBER;
-			cout << endl << "Введите количество вытягиваемых спичек: ";
-			cin >> Drawnmatches;
-			switch (NUMBER)
+			if (Drawnmatches > RAZMERKUCHKA[NUMBER - 1])
 			{
-				case 1:
-				{
-					if (RAZMERKUCHKA1 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA1)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA1 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-						}
-					}
-					break;
-				}
-				case 2:
-				{
-					if (RAZMERKUCHKA2 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA2)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA2 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
-						}
-					}
-					break;
-				}
-				case 3:
-				{
-					if (RAZMERKUCHKA3 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA3)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA3 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
-						}
-					}
-					break;
-				}
-				default:
-				{
-					cout << "ERROR";
-				}
+				cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA[NUMBER - 1] << " штук): ";
+				cin >> Drawnmatches;
 			}
+			RAZMERKUCHKA[NUMBER - 1] = KUCHKA(RAZMERKUCHKA[NUMBER - 1], Drawnmatches);
+			PLAYERNUMBER = NextPlayer(PLAYERNUMBER);
 		}
-		else
+		for (int i = 0;i < 3;i++)
 		{
-			cout << "Player 1 - Win!!" << endl;
-			konec = false;
-			break;
+			cout << RAZMERKUCHKA[i] <<" ";
 		}
 	}
+	cout << endl << "Player " << NextPlayer(PLAYERNUMBER) << " - Win!!" << endl;
 }
 void FUNKCIAPvE(int originalsize)
 {
-	int RAZMERKUCHKA1, RAZMERKUCHKA2, RAZMERKUCHKA3, NUMBER, Drawnmatches;
-	RAZMERKUCHKA1 = originalsize;
-	RAZMERKUCHKA2 = originalsize;
-	RAZMERKUCHKA3 = originalsize;
-	bool konec;
-	konec = true;
-	while (konec == true)
+	int RAZMERKUCHKA[3], NUMBER, Drawnmatches, PLAYERNUMBER = 1;
+	RAZMERKUCHKA[0] = originalsize;
+	RAZMERKUCHKA[1] = originalsize;
+	RAZMERKUCHKA[2] = originalsize;
+	while ((RAZMERKUCHKA[0] + RAZMERKUCHKA[1] + RAZMERKUCHKA[2]) > 0)
 	{
-		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
+		if (PLAYERNUMBER == 1)
 		{
-			cout << "Player 1" << endl << "Выберете одну из 3-х кучек: ";
+			cout << endl << "Player " << PLAYERNUMBER << endl << "Выберете одну из 3-х кучек: ";
 			cin >> NUMBER;
 			cout << endl << "Введите количество вытягиваемых спичек: ";
 			cin >> Drawnmatches;
-			switch (NUMBER)
-			{
-				case 1:
-				{
-					if (RAZMERKUCHKA1 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA1)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA1 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-						}
-					}
-					break;
-				}
-				case 2:
-				{
-					if (RAZMERKUCHKA2 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA2)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA2 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA2 = KUCHKA2(RAZMERKUCHKA2, Drawnmatches);
-						}
-					}
-					break;
-				}
-				case 3:
-				{
-					if (RAZMERKUCHKA3 == 0)
-					{
-						cout << "Выберете другую кучку эта пустая" << endl;
-						continue;
-					}
-					else
-					{
-						if (Drawnmatches > RAZMERKUCHKA3)
-						{
-							cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA3 << " штук): ";
-							cin >> Drawnmatches;
-							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
-						}
-						else
-						{
-							RAZMERKUCHKA3 = KUCHKA3(RAZMERKUCHKA3, Drawnmatches);
-						}
-					}
-					break;
-				}
-				default:
-				{
-					cout <<endl << "ERROR";
-				}
-			}
 		}
 		else
-		{
-			cout << "Computer - Win!!" << endl;
-			konec = false;
-			break;
-		}
-		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
 		{
 			NUMBER = rand() % 3 + 1;
-			switch (NUMBER)
+		}
+		if (RAZMERKUCHKA[NUMBER - 1] == 0)
+		{
+			if (PLAYERNUMBER == 1)
 			{
-				case 1:
-				{
-					if (RAZMERKUCHKA1 == 0)
-					{
-						continue;
-					}
-					else
-					{
-						Drawnmatches = rand() % RAZMERKUCHKA1 + 1;
-						RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-					}
-					break;
-				}
-				case 2:
-				{
-					if (RAZMERKUCHKA2 == 0)
-					{
-						continue;
-					}
-					else
-					{
-						Drawnmatches = rand() % RAZMERKUCHKA2 + 1;
-						RAZMERKUCHKA2 = KUCHKA1(RAZMERKUCHKA2, Drawnmatches);
-					}
-					break;
-				}
-				case 3:
-				{
-					if (RAZMERKUCHKA3 == 0)
-					{
-						continue;
-					}
-					else
-					{
-						Drawnmatches = rand() % RAZMERKUCHKA3 + 1;
-						RAZMERKUCHKA3 = KUCHKA1(RAZMERKUCHKA3, Drawnmatches);
-					}
-				}
-				default:
-				{
-					cout << endl << "ERROR";
-				}
-				break;
+				cout << "Выберете другую кучку эта пустая" << endl;
+				continue;
+			}
+			else
+			{
+				continue;
 			}
 		}
 		else
 		{
-			cout << "Player - Win!!" <<endl;
-			konec = false;
-			break;
+			if (PLAYERNUMBER == 1)
+			{
+				if (Drawnmatches > RAZMERKUCHKA[NUMBER - 1])
+				{
+					cout << endl << "Выберете другое количество спичек (не более " << RAZMERKUCHKA[NUMBER - 1] << " штук): ";
+					cin >> Drawnmatches;
+				}
+			}
+			else
+			{
+				Drawnmatches = rand() % RAZMERKUCHKA[NUMBER - 1] + 1;
+				cout << endl << "Компьютер " << PLAYERNUMBER << " взял из " << NUMBER << "-ей кучки " << Drawnmatches << " спичек" << endl;
+			}
+			RAZMERKUCHKA[NUMBER - 1] = KUCHKA(RAZMERKUCHKA[NUMBER - 1], Drawnmatches);
+			PLAYERNUMBER = NextPlayer(PLAYERNUMBER);
 		}
+		for (int i = 0;i < 3;i++)
+		{
+			cout << RAZMERKUCHKA[i] << " ";
+		}
+	}
+	if (NextPlayer(PLAYERNUMBER) == 1)
+	{
+		cout << endl << "Player - Win!!" << endl;
+	}
+	else
+	{
+		cout << endl << "Computer - Win!!" << endl;
 	}
 }
 void FUNKCIAEvE(int originalsize)
 {
-	int RAZMERKUCHKA1, RAZMERKUCHKA2, RAZMERKUCHKA3, NUMBER, Drawnmatches;
-	RAZMERKUCHKA1 = originalsize;
-	RAZMERKUCHKA2 = originalsize;
-	RAZMERKUCHKA3 = originalsize;
-	bool konec;
-	konec = true;
-	while (konec == true)
+	int RAZMERKUCHKA[3], NUMBER, Drawnmatches, ComputerNUMBER=1;
+	RAZMERKUCHKA[0] = originalsize;
+	RAZMERKUCHKA[1] = originalsize;
+	RAZMERKUCHKA[2] = originalsize;
+	while ((RAZMERKUCHKA[0] + RAZMERKUCHKA[1] + RAZMERKUCHKA[2]) != 0)
 	{
-		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
+		NUMBER = rand() % 3 + 1;
+		if (RAZMERKUCHKA[NUMBER-1] == 0)
 		{
-			NUMBER = rand() % 3 + 1;
-			switch (NUMBER)
-			{
-				case 1:
-				{
-					if (RAZMERKUCHKA1 == 0)
-					{
-						continue;
-					}
-					else
-					{
-						Drawnmatches = rand() % RAZMERKUCHKA1 + 1;
-						RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-					}
-					break;
-				}
-				case 2:
-				{
-					if (RAZMERKUCHKA2 == 0)
-					{
-						continue;
-					}
-					else
-					{
-						Drawnmatches = rand() % RAZMERKUCHKA2 + 1;
-						RAZMERKUCHKA2 = KUCHKA1(RAZMERKUCHKA2, Drawnmatches);
-					}
-					break;
-				}
-				case 3:
-				{
-					if (RAZMERKUCHKA3 == 0)
-					{
-						continue;
-					}
-					else
-					{
-						Drawnmatches = rand() % RAZMERKUCHKA3 + 1;
-						RAZMERKUCHKA3 = KUCHKA1(RAZMERKUCHKA3, Drawnmatches);
-					}
-					break;
-				}
-				default:
-				{
-					cout << endl << "ERROR";
-				}
-			}
+			continue;
 		}
 		else
 		{
-			cout << "Computer2 - Win!!" <<endl;
-			konec = false;
-			break;
+			Drawnmatches = rand() % RAZMERKUCHKA[NUMBER - 1] + 1;
+			cout <<endl << "Компьютер " << ComputerNUMBER << " взял из " << NUMBER <<"-ей кучки " << Drawnmatches <<" спичек" <<endl;
+			RAZMERKUCHKA[NUMBER - 1] = KUCHKA(RAZMERKUCHKA[NUMBER - 1], Drawnmatches);
+			ComputerNUMBER = NextPlayer(ComputerNUMBER);
 		}
-		if ((RAZMERKUCHKA1 + RAZMERKUCHKA2 + RAZMERKUCHKA3) != 0)
+		for (int i = 0; i < 3;i++)
 		{
-			NUMBER = rand() % 3 + 1;
-			switch (NUMBER)
-			{
-			case 1:
-			{
-				if (RAZMERKUCHKA1 == 0)
-				{
-					continue;
-				}
-				else
-				{
-					Drawnmatches = rand() % RAZMERKUCHKA1 + 1;
-					RAZMERKUCHKA1 = KUCHKA1(RAZMERKUCHKA1, Drawnmatches);
-				}
-				break;
-			}
-			case 2:
-			{
-				if (RAZMERKUCHKA2 == 0)
-				{
-					continue;
-				}
-				else
-				{
-					Drawnmatches = rand() % RAZMERKUCHKA2 + 1;
-					RAZMERKUCHKA2 = KUCHKA1(RAZMERKUCHKA2, Drawnmatches);
-				}
-				break;
-			}
-			case 3:
-			{
-				if (RAZMERKUCHKA3 == 0)
-				{
-					continue;
-				}
-				else
-				{
-					Drawnmatches = rand() % RAZMERKUCHKA3 + 1;
-					RAZMERKUCHKA3 = KUCHKA1(RAZMERKUCHKA3, Drawnmatches);
-				}
-				break;
-			}
-			default:
-			{
-				cout << endl << "ERROR";
-			}
-			}
+			cout << RAZMERKUCHKA[i] << " ";
 		}
-		else
-		{
-			cout << "Computer1 - Win!!";
-			konec = false;
-			break;
-		}
+	}
+	if (NextPlayer(ComputerNUMBER) == 1)
+	{
+		cout << endl << "Computer 1 - Win!!" << endl;
+	}
+	else
+	{
+		cout << endl << "Computer 2 - Win!!" << endl;
 	}
 }
 int main()
